@@ -42,7 +42,7 @@ const getSystemPath = async (pathname, opts)=>{
 module.exports = (opts)=>{
 	http.createServer(async (req, res)=>{
 		let pathname = url.parse(req.url).pathname;
-		if(pathname === '/' && pathname !== opts.rootPath){
+		if(pathname === '/' && opts.rootPath !== '/' && opts.rootPath !== ''){
 			res.writeHead(302, { 'Location': opts.rootPath });
 			return res.end();
 		}
